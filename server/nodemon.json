@@ -1,5 +1,5 @@
 { "watch": ["src"], "env": {
-    "DB_USER":"dev_pass_sgsgbs456",
-    "DB_PASSWORD":"dev_pass_sgsgbs456",
-    "DB_NAME":"AccessAnywhereDev"
+    "USERNAME":"rishitha_garuda",
+    "PASSWORD":"colorgame123",
+    "JWT_KEY":"jwt_token_colorgame"
 } }
