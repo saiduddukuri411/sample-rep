@@ -1,0 +1,5 @@
+{ "watch": ["src"], "env": {
+    "DB_USER":"dev_pass_sgsgbs456",
+    "DB_PASSWORD":"dev_pass_sgsgbs456",
+    "DB_NAME":"AccessAnywhereDev"
+} }
