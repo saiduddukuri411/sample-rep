@@ -1,5 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Loader from "../Loader/frame";
+
+// user actions and dispatchers
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { loggingAction } from "../../actions"
+import { useHistory } from "react-router-dom";
 
 // imported form styles
 import "./styles/form.scss";
@@ -7,7 +13,21 @@ import "./styles/form.scss";
 // import api fetcher fuction
 import loginUser from "./apiFetcher";
 
-const lognInframe = () => {
+const LognInframe = () => {
+  // get current token  and username
+  const dispatch = useDispatch();
+  const currentUsername = useSelector((state) => state.loggingReducer);
+  const history = useHistory(); 
+ 
+  // add user name and token functions
+  const GetCredentials = ( username, token ) => {
+     dispatch( loggingAction( username, token ) ) 
+     localStorage.setItem( "user_data", JSON.stringify({
+       token, username
+     }))
+     history.push("/game")
+  }
+  
   // declaring usename and password variables
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -36,7 +56,7 @@ const lognInframe = () => {
           type="button"
           class="loginbtn"
           onClick={() => {
-            loginUser(loader, setLoader, username, password);
+            loginUser(loader, setLoader, username, password, GetCredentials );
           }}
         >
           Login
@@ -53,6 +73,4 @@ const lognInframe = () => {
   );
 };
 
-export default lognInframe;
-
-
+export default LognInframe;

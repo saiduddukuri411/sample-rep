@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 
-const apiFetcher = async (loader, setLoader, username, password) => {
+import React from "react";
+
+const ApiFetcher = async (loader, setLoader, username, password, getCrentials) => {
+  // initialized dispatcher
+   
+
   setLoader((prev) => true);
   const response = await fetch("http://localhost:5000/colorgame/login", {
     method: "POST",
@@ -19,8 +24,9 @@ const apiFetcher = async (loader, setLoader, username, password) => {
     alert("Invalid Username or Password, Try again");
     return;
   }
-  console.log(responseData);
+  // console.log(responseData);
+  getCrentials( username, responseData.token );
   
 };
 
-export default apiFetcher;
+export default ApiFetcher;

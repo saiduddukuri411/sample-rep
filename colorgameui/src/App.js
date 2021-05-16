@@ -11,10 +11,14 @@ import { useState, useEffect } from "react";
 import Login from "./components/login/frame";
 import Game from "./components/game/frame";
 
+// import the store reducer and it used for logging in 
+import { useSelector } from "react-redux";
+
+
 function App() {
 
-   const [ username, setUsername ] = useState(null)
-   const [ token, setToken ] = useState(null)
+  const { username, token } = useSelector((state) => state.loggingReducer);
+  
   // return routes based on absolute path
   return (
     <Router>

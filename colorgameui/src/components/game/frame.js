@@ -1,12 +1,21 @@
 // import styling
 import "./style/frame.scss";
 
-const gameFrame = () => {
+// redux dispatches to reset login
+import { useDispatch } from "react-redux";
+import {loggingAction} from "../../actions"
+
+const GameFrame = () => {
+  const dispatch = useDispatch();
+  const logoutHandler = () => {
+    localStorage.removeItem("user_data");
+    dispatch( loggingAction( null, null ) )
+  }
   let wins = 0, losses = 0;
   return (
     <>
       <div align="right">
-        <input type="button" value="Logout" />
+        <input type="button" value="Logout"  onClick = { logoutHandler }/>
       </div>
       <div class="container">
         <h1>Names Colour Grid</h1>
@@ -28,4 +37,4 @@ const gameFrame = () => {
   );
 };
 
-export default gameFrame;
+export default GameFrame;
