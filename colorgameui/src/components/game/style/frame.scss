@@ -1,0 +1,55 @@
+*{
+    box-sizing:border-box;
+  }
+  .container{
+     display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+  .flex-container {
+    display: flex;
+    justify-content:center;
+    }
+  .flex-container > div {
+    background-color: #f1f1f1;
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: 150px 150px 150px 150px;
+    grid-template-rows: 150px 150px 150px;
+    gap: 0px 0px;
+    grid-template-areas:
+      "color-1 color-1 color-2 color-2"
+      "color-3 find find color-4"
+      "color-5 color-5 color-6 color-6";
+  }
+  
+  .color-1 { 
+    grid-area: color-1;
+  }
+  
+  .color-2 { 
+    grid-area: color-2;
+  }
+  
+  .find { grid-area: find; }
+  
+  .color-3 { grid-area: color-3; }
+  
+  .color-4 { grid-area: color-4; }
+  
+  .color-5 { grid-area: color-5; }
+  
+  .color-6 { grid-area: color-6; }
+  
+  
+  .grid-container * {
+    border: 1px solid black;
+    position: relative;
+  }
